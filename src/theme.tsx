@@ -7,7 +7,7 @@ const ThemeCtx = createContext<Ctx>(null as unknown as Ctx);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [mode, setMode] = useState<Mode>(
-    () => (localStorage.getItem("hv.theme") as Mode) || "dark"
+    () => (localStorage.getItem("hv.theme") as Mode) || "light"
   );
 
   useEffect(() => {

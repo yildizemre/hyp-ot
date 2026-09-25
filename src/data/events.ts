@@ -111,15 +111,15 @@ export const EVENTS: VisionEvent[] = [
     ),
     action: ls("3. bankoyu aç — tahmini bekleme 4:32 → 2:10", "Open desk 3 — est. wait 4:32 → 2:10"),
     status: "new",
-    zone: { points: [[0.16, 0.56], [0.72, 0.5], [0.86, 0.95], [0.08, 0.98]], label: ls("Kuyruk bölgesi", "Queue zone") },
+    zone: { points: [[0.30, 0.26], [0.52, 0.34], [0.90, 0.55], [0.92, 0.96], [0.62, 0.98], [0.28, 0.52]], label: ls("Kuyruk bölgesi", "Queue zone") },
     boxes: [
-      person(0.2, 0.52, 0.1, 0.34, ls("Misafir · 3:10", "Guest · 3:10"), "warn", 0.96),
-      person(0.31, 0.5, 0.1, 0.33, ls("Misafir · 2:44", "Guest · 2:44"), "warn", 0.94),
-      person(0.42, 0.49, 0.1, 0.32, ls("Misafir · 2:05", "Guest · 2:05"), "accent", 0.92),
-      person(0.53, 0.48, 0.09, 0.31, ls("Misafir · 1:32", "Guest · 1:32"), "accent", 0.9),
-      person(0.63, 0.47, 0.09, 0.3, ls("Misafir · 0:58", "Guest · 0:58"), "accent", 0.89),
-      person(0.72, 0.46, 0.09, 0.29, ls("Misafir · 0:22", "Guest · 0:22"), "accent", 0.87),
-      person(0.12, 0.45, 0.09, 0.3, ls("Personel", "Staff"), "ok", 0.95),
+      person(0.12, 0.19, 0.07, 0.15, ls("Personel", "Staff"), "ok", 0.95),
+      person(0.255, 0.24, 0.055, 0.23, ls("Misafir · 3:10", "Guest · 3:10"), "warn", 0.96),
+      person(0.325, 0.26, 0.065, 0.27, ls("Misafir · 2:44", "Guest · 2:44"), "warn", 0.94),
+      person(0.445, 0.35, 0.05, 0.25, ls("Misafir · 2:05", "Guest · 2:05"), "accent", 0.92),
+      person(0.545, 0.42, 0.06, 0.27, ls("Misafir · 1:32", "Guest · 1:32"), "accent", 0.9),
+      person(0.635, 0.49, 0.055, 0.27, ls("Misafir · 0:58", "Guest · 0:58"), "accent", 0.89),
+      person(0.775, 0.55, 0.075, 0.33, ls("Misafir · 0:22", "Guest · 0:22"), "accent", 0.87),
     ],
   },
   {
@@ -137,8 +137,8 @@ export const EVENTS: VisionEvent[] = [
     action: ls("Güvenlik ekibi yönlendirildi · lobi devriyesi", "Security team dispatched · lobby patrol"),
     status: "ack",
     boxes: [
-      { x: 0.44, y: 0.6, w: 0.11, h: 0.17, label: ls("Valiz · sahipsiz", "Suitcase · unattended"), tone: "danger", conf: 0.91, shape: "object" },
-      person(0.7, 0.44, 0.09, 0.3, ls("Personel", "Staff"), "ok", 0.93),
+      { x: 0.80, y: 0.78, w: 0.045, h: 0.12, label: ls("Valiz · sahipsiz", "Suitcase · unattended"), tone: "danger", conf: 0.91, shape: "object" },
+      person(0.12, 0.19, 0.07, 0.15, ls("Personel", "Staff"), "ok", 0.93),
     ],
   },
   {
@@ -155,15 +155,14 @@ export const EVENTS: VisionEvent[] = [
     ),
     action: ls("Ek şezlong ve havlu stoğu hazırlanmalı", "Prepare extra sunbeds and towel stock"),
     status: "new",
-    zone: { points: [[0.06, 0.52], [0.94, 0.46], [0.97, 0.97], [0.03, 0.97]], label: ls("Havuz alanı", "Pool area") },
+    zone: { points: [[0.28, 0.10], [0.96, 0.12], [0.98, 0.58], [0.22, 0.62]], label: ls("Havuz alanı", "Pool area") },
     boxes: [
-      person(0.14, 0.55, 0.07, 0.2, ls("Misafir", "Guest"), "accent", 0.88),
-      person(0.26, 0.58, 0.07, 0.2, ls("Misafir", "Guest"), "accent", 0.9),
-      person(0.38, 0.54, 0.06, 0.18, ls("Misafir", "Guest"), "accent", 0.86),
-      person(0.5, 0.6, 0.07, 0.21, ls("Misafir", "Guest"), "accent", 0.91),
-      person(0.62, 0.55, 0.06, 0.19, ls("Misafir", "Guest"), "accent", 0.85),
-      person(0.74, 0.58, 0.07, 0.2, ls("Misafir", "Guest"), "accent", 0.89),
-      person(0.85, 0.53, 0.06, 0.18, ls("Cankurtaran", "Lifeguard"), "ok", 0.94),
+      person(0.085, 0.46, 0.04, 0.12, ls("Personel", "Staff"), "ok", 0.94),
+      person(0.405, 0.46, 0.03, 0.11, ls("Misafir", "Guest"), "accent", 0.88),
+      person(0.435, 0.47, 0.03, 0.10, ls("Misafir", "Guest"), "accent", 0.86),
+      person(0.60, 0.70, 0.07, 0.08, ls("Misafir", "Guest"), "accent", 0.9),
+      person(0.70, 0.67, 0.065, 0.08, ls("Misafir", "Guest"), "accent", 0.89),
+      person(0.72, 0.45, 0.03, 0.09, ls("Misafir", "Guest"), "accent", 0.85),
     ],
   },
   {
@@ -180,10 +179,10 @@ export const EVENTS: VisionEvent[] = [
     ),
     action: ls("Kart kaydı ile eşleşme yok — güvenlik müdahalesi", "No badge match — security intervention"),
     status: "new",
-    zone: { points: [[0.52, 0.42], [0.95, 0.4], [0.97, 0.96], [0.46, 0.97]], label: ls("Kısıtlı bölge", "Restricted zone") },
+    zone: { points: [[0.36, 0.16], [0.92, 0.10], [0.96, 0.72], [0.40, 0.70]], label: ls("Kısıtlı bölge", "Restricted zone") },
     boxes: [
-      person(0.6, 0.38, 0.13, 0.44, ls("Kişi · yetkisiz", "Person · unauthorized"), "danger", 0.88),
-      person(0.24, 0.42, 0.1, 0.34, ls("Personel · kart OK", "Staff · badge OK"), "ok", 0.96),
+      person(0.16, 0.35, 0.14, 0.55, ls("Kişi · yetkisiz", "Person · unauthorized"), "danger", 0.88),
+      person(0.26, 0.19, 0.14, 0.45, ls("Personel · kart OK", "Staff · badge OK"), "ok", 0.96),
     ],
   },
   {
@@ -200,13 +199,13 @@ export const EVENTS: VisionEvent[] = [
     ),
     action: ls("2. omlet istasyonu açılmalı", "Open the 2nd omelette station"),
     status: "ack",
-    zone: { points: [[0.1, 0.58], [0.66, 0.52], [0.78, 0.96], [0.04, 0.97]], label: ls("Buffet kuyruğu", "Buffet queue") },
+    zone: { points: [[0.16, 0.46], [0.62, 0.18], [0.82, 0.22], [0.55, 0.78], [0.14, 0.92]], label: ls("Buffet kuyruğu", "Buffet queue") },
     boxes: [
-      person(0.16, 0.5, 0.1, 0.33, ls("Misafir · 4:20", "Guest · 4:20"), "warn", 0.93),
-      person(0.28, 0.49, 0.1, 0.32, ls("Misafir · 3:50", "Guest · 3:50"), "warn", 0.92),
-      person(0.4, 0.48, 0.09, 0.31, ls("Misafir · 2:40", "Guest · 2:40"), "accent", 0.9),
-      person(0.51, 0.47, 0.09, 0.3, ls("Misafir · 1:15", "Guest · 1:15"), "accent", 0.88),
-      person(0.78, 0.44, 0.1, 0.32, ls("Şef", "Chef"), "ok", 0.95),
+      person(0.00, 0.27, 0.14, 0.32, ls("Şef", "Chef"), "ok", 0.95),
+      person(0.17, 0.48, 0.13, 0.44, ls("Misafir · 4:20", "Guest · 4:20"), "warn", 0.93),
+      person(0.37, 0.35, 0.08, 0.35, ls("Misafir · 3:50", "Guest · 3:50"), "warn", 0.92),
+      person(0.45, 0.31, 0.08, 0.42, ls("Misafir · 2:40", "Guest · 2:40"), "accent", 0.9),
+      person(0.53, 0.23, 0.05, 0.20, ls("Misafir · 1:15", "Guest · 1:15"), "accent", 0.88),
     ],
   },
   {
@@ -224,8 +223,8 @@ export const EVENTS: VisionEvent[] = [
     action: ls("Olay kapatıldı · kaza raporu oluşturuldu", "Incident closed · accident report created"),
     status: "resolved",
     boxes: [
-      { x: 0.36, y: 0.68, w: 0.22, h: 0.13, label: ls("Düşme · man-down", "Fall · man-down"), tone: "danger", conf: 0.87, shape: "person-down" },
-      person(0.66, 0.46, 0.1, 0.33, ls("Cankurtaran", "Lifeguard"), "ok", 0.95),
+      { x: 0.155, y: 0.66, w: 0.09, h: 0.16, label: ls("Kişi · havuz kenarı", "Person · pool edge"), tone: "danger", conf: 0.87, shape: "person" },
+      person(0.615, 0.26, 0.035, 0.05, ls("Yüzücü", "Swimmer"), "accent", 0.8),
     ],
   },
   {
@@ -242,10 +241,9 @@ export const EVENTS: VisionEvent[] = [
     ),
     action: ls("Vale ekibine bildirim gönderildi", "Notification sent to valet team"),
     status: "ack",
-    zone: { points: [[0.28, 0.6], [0.86, 0.55], [0.92, 0.9], [0.22, 0.95]], label: ls("Yangın yolu", "Fire lane") },
+    zone: { points: [[0.22, 0.22], [0.68, 0.22], [0.70, 0.98], [0.20, 0.98]], label: ls("Giriş şeridi", "Entry lane") },
     boxes: [
-      { x: 0.34, y: 0.5, w: 0.3, h: 0.28, label: "34 CV 8821", tone: "danger", conf: 0.97, shape: "vehicle" },
-      { x: 0.7, y: 0.46, w: 0.2, h: 0.2, label: "06 BLK 117", tone: "ok", conf: 0.94, shape: "vehicle" },
+      { x: 0.30, y: 0.26, w: 0.28, h: 0.70, label: "34 CV 8821", tone: "danger", conf: 0.97, shape: "vehicle" },
     ],
   },
   {
@@ -263,7 +261,7 @@ export const EVENTS: VisionEvent[] = [
     action: ls("Kat görevlisine hatırlatma gönderildi", "Reminder sent to the floor attendant"),
     status: "new",
     boxes: [
-      { x: 0.52, y: 0.52, w: 0.16, h: 0.26, label: ls("Servis arabası · 22:14", "Trolley · 22:14"), tone: "warn", conf: 0.93, shape: "object" },
+      { x: 0.318, y: 0.30, w: 0.13, h: 0.40, label: ls("Servis arabası · 22:14", "Trolley · 22:14"), tone: "warn", conf: 0.93, shape: "object" },
     ],
   },
   {
@@ -280,7 +278,7 @@ export const EVENTS: VisionEvent[] = [
     ),
     action: ls("Güvenlik kamerayı canlı izlemeye aldı", "Security started live monitoring"),
     status: "ack",
-    boxes: [person(0.42, 0.4, 0.14, 0.45, ls("Kişi · 8:02 loitering", "Person · 8:02 loitering"), "danger", 0.9)],
+    boxes: [person(0.455, 0.12, 0.07, 0.20, ls("Kişi · 8:02 loitering", "Person · 8:02 loitering"), "danger", 0.9)],
   },
   {
     id: "EV-2409",
@@ -297,8 +295,8 @@ export const EVENTS: VisionEvent[] = [
     action: ls("Güvenlik müdahale etti · olay sözlü uyarı ile kapandı", "Security intervened · closed with verbal warning"),
     status: "resolved",
     boxes: [
-      person(0.36, 0.4, 0.12, 0.42, ls("Kişi A", "Person A"), "danger", 0.78),
-      person(0.5, 0.41, 0.12, 0.41, ls("Kişi B", "Person B"), "danger", 0.76),
+      person(0.30, 0.33, 0.07, 0.13, ls("Kişi A", "Person A"), "danger", 0.78),
+      person(0.445, 0.34, 0.05, 0.11, ls("Kişi B", "Person B"), "danger", 0.76),
     ],
   },
   {
@@ -315,15 +313,14 @@ export const EVENTS: VisionEvent[] = [
     ),
     action: ls("Giriş hızını yavaşlat · 2. salon kapısını aç", "Slow entry rate · open second hall door"),
     status: "ack",
-    zone: { points: [[0.04, 0.44], [0.96, 0.42], [0.98, 0.97], [0.02, 0.97]], label: ls("Salon alanı", "Hall area") },
+    zone: { points: [[0.04, 0.12], [0.96, 0.12], [0.98, 0.96], [0.02, 0.96]], label: ls("Salon alanı", "Hall area") },
     boxes: [
-      person(0.12, 0.5, 0.06, 0.18, ls("Misafir", "Guest"), "accent", 0.84),
-      person(0.24, 0.52, 0.06, 0.18, ls("Misafir", "Guest"), "accent", 0.86),
-      person(0.36, 0.5, 0.05, 0.17, ls("Misafir", "Guest"), "accent", 0.83),
-      person(0.48, 0.54, 0.06, 0.19, ls("Misafir", "Guest"), "accent", 0.88),
-      person(0.6, 0.51, 0.05, 0.17, ls("Misafir", "Guest"), "accent", 0.82),
-      person(0.72, 0.53, 0.06, 0.18, ls("Misafir", "Guest"), "accent", 0.85),
-      person(0.84, 0.5, 0.05, 0.17, ls("Misafir", "Guest"), "accent", 0.81),
+      person(0.22, 0.81, 0.035, 0.07, ls("Misafir", "Guest"), "accent", 0.84),
+      person(0.42, 0.79, 0.04, 0.08, ls("Misafir", "Guest"), "accent", 0.86),
+      person(0.50, 0.77, 0.035, 0.07, ls("Misafir", "Guest"), "accent", 0.83),
+      person(0.30, 0.59, 0.035, 0.07, ls("Misafir", "Guest"), "accent", 0.88),
+      person(0.62, 0.57, 0.035, 0.07, ls("Misafir", "Guest"), "accent", 0.82),
+      person(0.48, 0.40, 0.03, 0.06, ls("Misafir", "Guest"), "accent", 0.81),
     ],
   },
   {
@@ -341,7 +338,7 @@ export const EVENTS: VisionEvent[] = [
     action: ls("Teknik servis kontrol etti · sigara kaynaklı, kapatıldı", "Technical service checked · cigarette related, closed"),
     status: "resolved",
     boxes: [
-      { x: 0.56, y: 0.34, w: 0.26, h: 0.3, label: ls("Duman · %81", "Smoke · 81%"), tone: "danger", conf: 0.81, shape: "smoke" },
+      { x: 0.70, y: 0.58, w: 0.26, h: 0.38, label: ls("Duman · konteyner", "Smoke · bins"), tone: "danger", conf: 0.81, shape: "smoke" },
     ],
   },
   {
@@ -359,8 +356,7 @@ export const EVENTS: VisionEvent[] = [
     action: ls("Vardiya amiri raporladı · yetkili personel doğrulandı", "Shift supervisor reported · authorized staff verified"),
     status: "resolved",
     boxes: [
-      person(0.3, 0.42, 0.11, 0.36, ls("Personel", "Staff"), "warn", 0.9),
-      person(0.56, 0.44, 0.1, 0.34, ls("Personel", "Staff"), "warn", 0.88),
+      person(0.665, 0.26, 0.11, 0.40, ls("Personel", "Staff"), "warn", 0.9),
     ],
   },
   {
@@ -375,8 +371,8 @@ export const EVENTS: VisionEvent[] = [
     action: ls("İK'ya bilgilendirme gönderildi", "Notification sent to HR"),
     status: "resolved",
     boxes: [
-      person(0.38, 0.4, 0.11, 0.38, ls("Kart sahibi", "Badge holder"), "ok", 0.94),
-      person(0.5, 0.41, 0.11, 0.37, ls("Takip eden", "Follower"), "warn", 0.89),
+      person(0.26, 0.19, 0.14, 0.45, ls("Kart sahibi", "Badge holder"), "ok", 0.94),
+      person(0.16, 0.35, 0.14, 0.55, ls("Takip eden", "Follower"), "warn", 0.89),
     ],
   },
   {
@@ -394,9 +390,9 @@ export const EVENTS: VisionEvent[] = [
     action: ls("Check-in kuyruğu ile ilişkilendirildi", "Correlated with the check-in queue"),
     status: "resolved",
     boxes: [
-      person(0.2, 0.5, 0.09, 0.3, ls("Misafir · 21 dk", "Guest · 21 min"), "violet", 0.9),
-      person(0.46, 0.52, 0.09, 0.3, ls("Misafir · 17 dk", "Guest · 17 min"), "violet", 0.91),
-      person(0.68, 0.49, 0.09, 0.29, ls("Misafir · 14 dk", "Guest · 14 min"), "accent", 0.89),
+      person(0.30, 0.33, 0.07, 0.13, ls("Misafir · 21 dk", "Guest · 21 min"), "violet", 0.9),
+      person(0.445, 0.34, 0.05, 0.11, ls("Misafir · 17 dk", "Guest · 17 min"), "violet", 0.91),
+      person(0.34, 0.65, 0.07, 0.13, ls("Misafir · 14 dk", "Guest · 14 min"), "accent", 0.89),
     ],
   },
   {
@@ -413,7 +409,7 @@ export const EVENTS: VisionEvent[] = [
     ),
     action: ls("Housekeeping şefine eğitim notu oluşturuldu", "Training note created for housekeeping supervisor"),
     status: "ack",
-    boxes: [person(0.44, 0.42, 0.13, 0.4, ls("Personel · adım eksik", "Staff · step missing"), "violet", 0.86)],
+    boxes: [person(0.665, 0.26, 0.11, 0.40, ls("Personel · adım eksik", "Staff · step missing"), "violet", 0.86)],
   },
   {
     id: "EV-2402",
@@ -430,10 +426,11 @@ export const EVENTS: VisionEvent[] = [
     action: ls("Grup check-in masası önerildi", "Group check-in desk recommended"),
     status: "resolved",
     boxes: [
-      person(0.18, 0.46, 0.09, 0.3, ls("Giriş", "Entry"), "accent", 0.92),
-      person(0.34, 0.48, 0.09, 0.3, ls("Giriş", "Entry"), "accent", 0.91),
-      person(0.5, 0.45, 0.08, 0.28, ls("Giriş", "Entry"), "accent", 0.9),
-      person(0.66, 0.47, 0.09, 0.29, ls("Çıkış", "Exit"), "ok", 0.9),
+      person(0.26, 0.46, 0.11, 0.40, ls("Giriş", "Entry"), "accent", 0.94),
+      person(0.51, 0.54, 0.14, 0.40, ls("Giriş", "Entry"), "accent", 0.93),
+      person(0.445, 0.26, 0.04, 0.18, ls("Giriş", "Entry"), "accent", 0.9),
+      person(0.505, 0.24, 0.04, 0.18, ls("Giriş", "Entry"), "accent", 0.9),
+      person(0.615, 0.26, 0.05, 0.18, ls("Personel", "Staff"), "ok", 0.92),
     ],
   },
   {
@@ -466,7 +463,7 @@ export const EVENTS: VisionEvent[] = [
     ),
     action: ls("Resepsiyona karşılama bildirimi gönderildi", "Welcome notification sent to reception"),
     status: "resolved",
-    boxes: [{ x: 0.32, y: 0.46, w: 0.34, h: 0.3, label: "34 VIP 007", tone: "ok", conf: 0.98, shape: "vehicle" }],
+    boxes: [{ x: 0.30, y: 0.26, w: 0.28, h: 0.70, label: "34 VIP 007", tone: "ok", conf: 0.98, shape: "vehicle" }],
   },
 ];
 

@@ -10,6 +10,8 @@ import {
   wellnessHourly,
   zoneOccupancy,
 } from "../data/series";
+import { LIVE_BOXES } from "../data/boxes";
+import { eventsOfCamera } from "../data/events";
 import { ls, useFmt, useLang } from "../i18n";
 import { DEMO_NOW, hhmm } from "../lib/util";
 
@@ -200,11 +202,7 @@ export default function Occupancy() {
                   cameraId={c.id}
                   time={hhmm(DEMO_NOW)}
                   compact
-                  boxes={[
-                    { x: 0.2, y: 0.46, w: 0.09, h: 0.3, label: lang === "tr" ? "kişi" : "person", tone: "accent", conf: 0.93, shape: "person" },
-                    { x: 0.42, y: 0.48, w: 0.09, h: 0.3, label: lang === "tr" ? "kişi" : "person", tone: "accent", conf: 0.91, shape: "person" },
-                    { x: 0.64, y: 0.45, w: 0.09, h: 0.29, label: lang === "tr" ? "kişi" : "person", tone: "accent", conf: 0.9, shape: "person" },
-                  ]}
+                  boxes={eventsOfCamera(c.id)[0]?.boxes ?? LIVE_BOXES[c.id] ?? []}
                   showLabels={false}
                 />
                 <div className="mt-1.5 text-[10.5px] text-mute">{c.name}</div>

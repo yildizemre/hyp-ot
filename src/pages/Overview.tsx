@@ -304,7 +304,7 @@ export default function Overview() {
               cameraId="CAM-40"
               time={hhmm(DEMO_NOW)}
               compact
-              boxes={[{ x: 0.3, y: 0.46, w: 0.34, h: 0.3, label: "34 VIP 007", tone: "ok", conf: 0.98, shape: "vehicle" }]}
+              boxes={[{ x: 0.30, y: 0.26, w: 0.28, h: 0.70, label: "34 VIP 007", tone: "ok", conf: 0.98, shape: "vehicle" }]}
               onClick={() => nav("/lpr")}
             />
           </div>

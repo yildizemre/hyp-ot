@@ -163,13 +163,13 @@ export default function Banquet() {
             name={lang === "tr" ? "Balo foyer — registration" : "Ballroom foyer — registration"}
             time="10:30:18"
             boxes={[
-              { x: 0.14, y: 0.5, w: 0.09, h: 0.3, label: ls("Misafir · 2:10", "Guest · 2:10"), tone: "warn", conf: 0.93, shape: "person" },
-              { x: 0.26, y: 0.51, w: 0.09, h: 0.29, label: ls("Misafir · 1:44", "Guest · 1:44"), tone: "accent", conf: 0.92, shape: "person" },
-              { x: 0.38, y: 0.5, w: 0.09, h: 0.28, label: ls("Misafir · 1:02", "Guest · 1:02"), tone: "accent", conf: 0.9, shape: "person" },
-              { x: 0.5, y: 0.49, w: 0.09, h: 0.28, label: ls("Misafir · 0:34", "Guest · 0:34"), tone: "accent", conf: 0.89, shape: "person" },
-              { x: 0.72, y: 0.47, w: 0.1, h: 0.3, label: ls("Görevli", "Staff"), tone: "ok", conf: 0.95, shape: "person" },
+              { x: 0.32, y: 0.54, w: 0.08, h: 0.33, label: ls("Misafir · 2:10", "Guest · 2:10"), tone: "warn", conf: 0.93, shape: "person" },
+              { x: 0.42, y: 0.40, w: 0.06, h: 0.24, label: ls("Misafir · 1:44", "Guest · 1:44"), tone: "accent", conf: 0.92, shape: "person" },
+              { x: 0.495, y: 0.40, w: 0.055, h: 0.24, label: ls("Misafir · 1:02", "Guest · 1:02"), tone: "accent", conf: 0.9, shape: "person" },
+              { x: 0.21, y: 0.34, w: 0.07, h: 0.30, label: ls("Görevli", "Staff"), tone: "ok", conf: 0.95, shape: "person" },
+              { x: 0.15, y: 0.34, w: 0.06, h: 0.24, label: ls("Görevli", "Staff"), tone: "ok", conf: 0.91, shape: "person" },
             ]}
-            zone={{ points: [[0.1, 0.58], [0.66, 0.52], [0.76, 0.96], [0.04, 0.97]], label: ls("Registration kuyruğu", "Registration queue") }}
+            zone={{ points: [[0.28, 0.36], [0.58, 0.36], [0.62, 0.88], [0.26, 0.90]], label: ls("Registration kuyruğu", "Registration queue") }}
           />
           <div className="mt-3">
             <EventList events={eventsOf("banquet")} showThumb={false} />

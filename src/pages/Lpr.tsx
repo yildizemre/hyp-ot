@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { ArrowDownToLine, ArrowUpFromLine, Search, ScanLine } from "lucide-react";
 import { CameraFrame } from "../components/CameraFrame";
 import { Badge, Btn, Card, CardHead, Kpi, PageHead, Table, Td, Tr } from "../components/ui";
+import { LIVE_BOXES } from "../data/boxes";
 import { plateLog } from "../data/series";
 import { ls, useFmt, useLang } from "../i18n";
 import { DEMO_NOW, hhmm } from "../lib/util";
@@ -104,16 +105,9 @@ export default function Lpr() {
             cameraId={sel.camera}
             time={`${sel.at}:12`}
             boxes={[
-              {
-                x: 0.3,
-                y: 0.44,
-                w: 0.34,
-                h: 0.3,
-                label: sel.plate,
-                tone: sel.tone,
-                conf: 0.97,
-                shape: "vehicle",
-              },
+              sel.camera === "CAM-62"
+                ? { x: 0.45, y: 0.08, w: 0.32, h: 0.48, label: sel.plate, tone: sel.tone, conf: 0.97, shape: "vehicle" as const }
+                : { x: 0.30, y: 0.26, w: 0.28, h: 0.70, label: sel.plate, tone: sel.tone, conf: 0.97, shape: "vehicle" as const },
             ]}
           />
           <dl className="mt-3 grid grid-cols-2 gap-2 text-[11.5px]">
@@ -139,11 +133,7 @@ export default function Lpr() {
               name={lang === "tr" ? "P1 — A bloğu" : "P1 — Block A"}
               time={hhmm(DEMO_NOW)}
               compact
-              boxes={[
-                { x: 0.06, y: 0.46, w: 0.18, h: 0.16, label: "34 HZ 9010", tone: "ok", conf: 0.95, shape: "vehicle" },
-                { x: 0.3, y: 0.46, w: 0.18, h: 0.16, label: "06 BLK 117", tone: "ok", conf: 0.93, shape: "vehicle" },
-                { x: 0.54, y: 0.46, w: 0.18, h: 0.16, label: "34 ZR 7742", tone: "accent", conf: 0.91, shape: "vehicle" },
-              ]}
+              boxes={LIVE_BOXES["CAM-41"]}
             />
           </div>
         </Card>
