@@ -34,7 +34,8 @@ export default function Login() {
 
   useEffect(() => {
     document.documentElement.classList.add("light");
-    localStorage.setItem("hv.theme", "light");
+    localStorage.setItem("orb.theme", "light");
+    localStorage.removeItem("hv.theme");
   }, []);
 
   const submit = (e: React.FormEvent) => {

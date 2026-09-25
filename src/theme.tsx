@@ -7,12 +7,13 @@ const ThemeCtx = createContext<Ctx>(null as unknown as Ctx);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [mode, setMode] = useState<Mode>(
-    () => (localStorage.getItem("hv.theme") as Mode) || "light"
+    () => (localStorage.getItem("orb.theme") as Mode) || (localStorage.getItem("hv.theme") as Mode) || "light"
   );
 
   useEffect(() => {
     document.documentElement.classList.toggle("light", mode === "light");
-    localStorage.setItem("hv.theme", mode);
+    localStorage.setItem("orb.theme", mode);
+    localStorage.removeItem("hv.theme");
   }, [mode]);
 
   const value = useMemo(

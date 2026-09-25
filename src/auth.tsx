@@ -115,11 +115,14 @@ type Ctx = {
 const AuthCtx = createContext<Ctx>(null as unknown as Ctx);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [roleId, setRoleId] = useState<string | null>(() => localStorage.getItem("hv.role"));
+  const [roleId, setRoleId] = useState<string | null>(
+    () => localStorage.getItem("orb.role") || localStorage.getItem("hv.role")
+  );
 
   useEffect(() => {
-    if (roleId) localStorage.setItem("hv.role", roleId);
-    else localStorage.removeItem("hv.role");
+    if (roleId) localStorage.setItem("orb.role", roleId);
+    else localStorage.removeItem("orb.role");
+    localStorage.removeItem("hv.role");
   }, [roleId]);
 
   const user = useMemo(() => DEMO_ROLES.find((r) => r.id === roleId) ?? null, [roleId]);
