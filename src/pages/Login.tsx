@@ -34,7 +34,8 @@ export default function Login() {
 
   useEffect(() => {
     document.documentElement.classList.add("light");
-    localStorage.setItem("orb.theme", "light");
+    localStorage.setItem("hype.theme", "light");
+    localStorage.removeItem("orb.theme");
     localStorage.removeItem("hv.theme");
   }, []);
 

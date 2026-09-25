@@ -44,7 +44,7 @@ export type Camera = {
 };
 
 export const HOTEL = {
-  brand: "orbisoft",
+  brand: "hype",
   property: ls("Demo Bosphorus Resort & Spa", "Demo Bosphorus Resort & Spa"),
   subtitle: ls(
     "342 oda · 6 kat · 38 kamera canlı analiz ediliyor",

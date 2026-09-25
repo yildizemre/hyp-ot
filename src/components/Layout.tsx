@@ -96,7 +96,7 @@ const NAV: NavGroup[] = [
 export function Logo({ height = 36 }: { height?: number }) {
   return (
     <span className="logo-wrap">
-      <img src="/logo.png" alt="orbisoft" style={{ height }} className="w-auto select-none bg-transparent" />
+      <img src="/logo.png" alt="hype" style={{ height }} className="w-auto select-none bg-transparent" />
     </span>
   );
 }
@@ -205,7 +205,7 @@ export function Layout() {
     >
       <div className={cx("flex h-[72px] shrink-0 items-center border-b border-line", collapsed ? "justify-center px-2" : "px-3")}>
         {collapsed ? (
-          <img src="/logo.png" alt="orbisoft" className="h-10 w-10 object-cover object-left" />
+          <img src="/logo.png" alt="hype" className="h-10 w-10 object-cover object-left" />
         ) : (
           <Logo height={42} />
         )}

@@ -18,11 +18,16 @@ const LangCtx = createContext<Ctx>(null as unknown as Ctx);
 
 export function LangProvider({ children }: { children: React.ReactNode }) {
   const [lang, setLangState] = useState<Lang>(
-    () => (localStorage.getItem("orb.lang") as Lang) || (localStorage.getItem("hv.lang") as Lang) || "tr"
+    () =>
+      (localStorage.getItem("hype.lang") as Lang) ||
+      (localStorage.getItem("orb.lang") as Lang) ||
+      (localStorage.getItem("hv.lang") as Lang) ||
+      "tr"
   );
 
   useEffect(() => {
-    localStorage.setItem("orb.lang", lang);
+    localStorage.setItem("hype.lang", lang);
+    localStorage.removeItem("orb.lang");
     localStorage.removeItem("hv.lang");
     document.documentElement.lang = lang;
   }, [lang]);

@@ -1,4 +1,4 @@
-# orbisoft — Otel görüntü analitiği
+# hype — Otel görüntü analitiği
 
 Otel operasyonu için CCTV / görüntü işleme demo paneli. Resepsiyon kuyruğu, lobi akışı, F&B doluluk, havuz kapasitesi, otopark plaka tanıma, housekeeping SOP ve güvenlik olayları tek ekranda.
 
