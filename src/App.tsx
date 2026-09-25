@@ -22,6 +22,7 @@ import AiReports from "./pages/AiReports";
 import Occupancy from "./pages/Occupancy";
 import Reports from "./pages/Reports";
 import SettingsPage from "./pages/Settings";
+import NotFound from "./pages/NotFound";
 
 function Guard({ k, children }: { k: NavKey; children: React.ReactNode }) {
   const { can } = useAuth();
@@ -35,7 +36,7 @@ export default function App() {
     return (
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route path="*" element={<Navigate to="/login" replace />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     );
   }
@@ -66,8 +67,8 @@ export default function App() {
         <Route path="/occupancy" element={page("occupancy", <Occupancy />)} />
         <Route path="/reports" element={page("reports", <Reports />)} />
         <Route path="/settings" element={page("settings", <SettingsPage />)} />
-        <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }
