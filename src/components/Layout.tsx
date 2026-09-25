@@ -14,7 +14,6 @@ import {
   LogOut,
   Maximize,
   Monitor,
-  Moon,
   PanelLeftClose,
   PanelLeftOpen,
   ScanLine,
@@ -22,7 +21,6 @@ import {
   ShieldAlert,
   Siren,
   Sparkles,
-  Sun,
   Users,
   Video,
   Waves,
@@ -30,7 +28,6 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { useAuth, type NavKey } from "../auth";
-import { useTheme } from "../theme";
 import { HOTEL } from "../data/hotel";
 import { openEvents } from "../data/events";
 import { ls, useLang, type LS } from "../i18n";
@@ -190,7 +187,6 @@ export function Layout() {
   const { l, lang, setLang } = useLang();
   const { user, logout, can } = useAuth();
   const nav = useNavigate();
-  const { mode, toggle: toggleTheme } = useTheme();
   const [collapsed, setCollapsed] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -335,13 +331,6 @@ export function Layout() {
                 </button>
               ))}
             </div>
-
-            <button
-              onClick={toggleTheme}
-              className="grid size-8 place-items-center rounded-lg border border-line bg-panel2 text-dim transition hover:text-ink"
-            >
-              {mode === "light" ? <Moon size={14} /> : <Sun size={14} />}
-            </button>
 
             <NotificationBell />
           </div>

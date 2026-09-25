@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowRight, Camera, LogIn, ShieldCheck, Sparkles, Users } from "lucide-react";
 import { DEMO_ROLES, useAuth } from "../auth";
@@ -31,13 +31,6 @@ export default function Login() {
   const nav = useNavigate();
   const [roleId, setRoleId] = useState(DEMO_ROLES[0].id);
   const role = DEMO_ROLES.find((r) => r.id === roleId)!;
-
-  useEffect(() => {
-    document.documentElement.classList.add("light");
-    localStorage.setItem("hype.theme", "light");
-    localStorage.removeItem("orb.theme");
-    localStorage.removeItem("hv.theme");
-  }, []);
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
