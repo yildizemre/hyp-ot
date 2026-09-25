@@ -200,7 +200,7 @@ export function SnapshotModal({ ev, onClose }: { ev: VisionEvent; onClose: () =>
                 [lang === "tr" ? "Bölge" : "Area", l(areaName(ev.area))],
                 [lang === "tr" ? "Kamera" : "Camera", ev.cameraId],
                 [lang === "tr" ? "Model" : "Model", l(meta.label)],
-                [lang === "tr" ? "Nesne" : "Objects", String(ev.boxes.length)],
+                [lang === "tr" ? "Saat" : "Time", hhmmss(ev.at)],
               ].map(([k, v]) => (
                 <div key={k} className="rounded-lg border border-line bg-panel2 px-2.5 py-2">
                   <dt className="text-[10px] uppercase tracking-wide text-mute">{k}</dt>

@@ -1,117 +1,15 @@
 import { useId } from "react";
 import { Maximize2, VideoOff } from "lucide-react";
-import type { Box, BoxShape } from "../data/events";
+import type { Box } from "../data/events";
 import type { SceneKind } from "../data/hotel";
 import { photoFor } from "../data/photos";
 import { cx, hashString, seeded } from "../lib/util";
-import { useLang, type LS } from "../i18n";
+import type { LS } from "../i18n";
 
 const W = 400;
 const H = 225;
 
-const TONE_HEX: Record<NonNullable<Box["tone"]>, string> = {
-  accent: "#18d5e8",
-  warn: "#f6ae2d",
-  danger: "#fb5d5d",
-  ok: "#16c79a",
-  violet: "#8b7cf6",
-};
-
 const range = (n: number) => Array.from({ length: n }, (_, i) => i);
-
-/* ------------------------------------------------------------------ */
-/*  Detected object silhouettes                                        */
-/* ------------------------------------------------------------------ */
-
-function Silhouette({ x, y, w, h, shape }: { x: number; y: number; w: number; h: number; shape: BoxShape }) {
-  const body = "#111a24";
-  const rim = "#2d3b4a";
-
-  if (shape === "vehicle") {
-    return (
-      <g opacity={0.95}>
-        <rect x={x} y={y + h * 0.42} width={w} height={h * 0.44} rx={h * 0.13} fill={body} />
-        <path
-          d={`M ${x + w * 0.2} ${y + h * 0.45} L ${x + w * 0.3} ${y + h * 0.12} L ${x + w * 0.72} ${y + h * 0.12} L ${x + w * 0.82} ${y + h * 0.45} Z`}
-          fill={body}
-        />
-        <path
-          d={`M ${x + w * 0.26} ${y + h * 0.42} L ${x + w * 0.34} ${y + h * 0.18} L ${x + w * 0.68} ${y + h * 0.18} L ${x + w * 0.76} ${y + h * 0.42} Z`}
-          fill="#26333f"
-        />
-        <circle cx={x + w * 0.24} cy={y + h * 0.87} r={h * 0.11} fill="#05090d" />
-        <circle cx={x + w * 0.78} cy={y + h * 0.87} r={h * 0.11} fill="#05090d" />
-        <rect x={x + w * 0.02} y={y + h * 0.55} width={w * 0.1} height={h * 0.1} rx={2} fill="#f3e4a8" opacity={0.7} />
-        <rect x={x + w * 0.88} y={y + h * 0.55} width={w * 0.1} height={h * 0.1} rx={2} fill="#f3e4a8" opacity={0.7} />
-      </g>
-    );
-  }
-
-  if (shape === "object") {
-    return (
-      <g opacity={0.95}>
-        <rect x={x + w * 0.12} y={y + h * 0.22} width={w * 0.76} height={h * 0.74} rx={w * 0.1} fill={body} />
-        <rect x={x + w * 0.12} y={y + h * 0.22} width={w * 0.76} height={h * 0.12} rx={w * 0.06} fill={rim} opacity={0.6} />
-        <path
-          d={`M ${x + w * 0.36} ${y + h * 0.22} L ${x + w * 0.36} ${y + h * 0.06} L ${x + w * 0.64} ${y + h * 0.06} L ${x + w * 0.64} ${y + h * 0.22}`}
-          fill="none"
-          stroke={rim}
-          strokeWidth={1.4}
-        />
-      </g>
-    );
-  }
-
-  if (shape === "smoke") {
-    return (
-      <g opacity={0.8}>
-        {range(5).map((i) => (
-          <ellipse
-            key={i}
-            cx={x + w * (0.3 + i * 0.1)}
-            cy={y + h * (0.78 - i * 0.16)}
-            rx={w * (0.2 + i * 0.05)}
-            ry={h * (0.14 + i * 0.03)}
-            fill="#9fb0c0"
-            opacity={0.26 - i * 0.03}
-          />
-        ))}
-      </g>
-    );
-  }
-
-  if (shape === "person-down") {
-    return (
-      <g opacity={0.95}>
-        <rect x={x + w * 0.16} y={y + h * 0.42} width={w * 0.74} height={h * 0.42} rx={h * 0.2} fill={body} />
-        <circle cx={x + w * 0.11} cy={y + h * 0.6} r={h * 0.22} fill={body} />
-        <rect x={x + w * 0.5} y={y + h * 0.78} width={w * 0.34} height={h * 0.16} rx={h * 0.08} fill={body} />
-      </g>
-    );
-  }
-
-  // standing person
-  const cx0 = x + w / 2;
-  return (
-    <g opacity={0.96}>
-      <ellipse cx={cx0} cy={y + h * 0.985} rx={w * 0.42} ry={h * 0.035} fill="#04080c" opacity={0.5} />
-      <path
-        d={`M ${x + w * 0.22} ${y + h} L ${x + w * 0.24} ${y + h * 0.46}
-            Q ${cx0} ${y + h * 0.28} ${x + w * 0.76} ${y + h * 0.46}
-            L ${x + w * 0.78} ${y + h} Z`}
-        fill={body}
-      />
-      <circle cx={cx0} cy={y + h * 0.14} r={Math.min(w * 0.3, h * 0.13)} fill={body} />
-      <path
-        d={`M ${x + w * 0.3} ${y + h * 0.44} Q ${cx0} ${y + h * 0.32} ${x + w * 0.7} ${y + h * 0.44}`}
-        fill="none"
-        stroke={rim}
-        strokeWidth={0.9}
-        opacity={0.55}
-      />
-    </g>
-  );
-}
 
 /* ------------------------------------------------------------------ */
 /*  Scenes                                                             */
@@ -639,22 +537,17 @@ export type CameraFrameProps = {
 export function CameraFrame({
   kind,
   seed = 1,
-  boxes = [],
-  zone,
   cameraId,
   name,
   time,
   status = "online",
   live = true,
   compact = false,
-  showLabels,
   className,
   onClick,
 }: CameraFrameProps) {
   const uid = useId().replace(/[:]/g, "");
-  const { l } = useLang();
   const rnd = seeded(typeof seed === "number" ? seed + 7 : hashString(String(seed)));
-  const withLabels = showLabels ?? !compact;
   const offline = status === "offline";
   const photo = photoFor(kind, cameraId);
 
@@ -706,76 +599,6 @@ export function CameraFrame({
 
           {!photo && <Scene kind={kind} rnd={rnd} />}
 
-          {/* analytics zone */}
-          {zone && (
-            <g>
-              <polygon
-                points={zone.points.map(([x, y]) => `${x * W},${y * H}`).join(" ")}
-                fill="#18d5e8"
-                fillOpacity={0.1}
-                stroke="#18d5e8"
-                strokeOpacity={0.7}
-                strokeWidth={1.3}
-                strokeDasharray="7 5"
-              />
-              {withLabels && (
-                <g>
-                  <rect
-                    x={zone.points[0][0] * W}
-                    y={zone.points[0][1] * H - 13}
-                    width={l(zone.label).length * 4.4 + 10}
-                    height={11}
-                    rx={2.5}
-                    fill="#18d5e8"
-                    fillOpacity={0.85}
-                  />
-                  <text
-                    x={zone.points[0][0] * W + 5}
-                    y={zone.points[0][1] * H - 5}
-                    fontSize={7.4}
-                    fontWeight={700}
-                    fill="#04161a"
-                  >
-                    {l(zone.label)}
-                  </text>
-                </g>
-              )}
-            </g>
-          )}
-
-          {/* detections */}
-          {boxes.map((b, i) => {
-            const bx = b.x * W;
-            const by = b.y * H;
-            const bw = b.w * W;
-            const bh = b.h * H;
-            const hex = TONE_HEX[b.tone ?? "accent"];
-            const label = typeof b.label === "string" ? b.label : l(b.label);
-            const text = b.conf ? `${label} ${Math.round(b.conf * 100)}%` : label;
-            const tw = text.length * 4.1 + 8;
-            return (
-              <g key={i}>
-                {!photo && <Silhouette x={bx} y={by} w={bw} h={bh} shape={b.shape ?? "person"} />}
-                <rect x={bx} y={by} width={bw} height={bh} fill={hex} fillOpacity={photo ? 0.04 : 0.07} />
-                <rect x={bx} y={by} width={bw} height={bh} fill="none" stroke={hex} strokeWidth={1.2} />
-                <g stroke={hex} strokeWidth={2.2} strokeLinecap="round">
-                  <path d={`M ${bx} ${by + 5} L ${bx} ${by} L ${bx + 5} ${by}`} />
-                  <path d={`M ${bx + bw - 5} ${by} L ${bx + bw} ${by} L ${bx + bw} ${by + 5}`} />
-                  <path d={`M ${bx} ${by + bh - 5} L ${bx} ${by + bh} L ${bx + 5} ${by + bh}`} />
-                  <path d={`M ${bx + bw - 5} ${by + bh} L ${bx + bw} ${by + bh} L ${bx + bw} ${by + bh - 5}`} />
-                </g>
-                {withLabels && (
-                  <g>
-                    <rect x={bx} y={Math.max(0, by - 11.5)} width={tw} height={10.5} rx={2} fill={hex} />
-                    <text x={bx + 4} y={Math.max(0, by - 11.5) + 7.6} fontSize={7} fontWeight={700} fill="#04161a">
-                      {text}
-                    </text>
-                  </g>
-                )}
-              </g>
-            );
-          })}
-
           <rect width={W} height={H} fill={`url(#vig${uid})`} />
           <rect width={W} height={H} filter={`url(#grain${uid})`} opacity={0.055} />
         </svg>
@@ -811,14 +634,7 @@ export function CameraFrame({
             </span>
           )}
         </div>
-        <div className="flex items-end justify-between gap-2">
-          {boxes.length > 0 ? (
-            <span className="num rounded bg-black/65 px-1.5 py-0.5 text-[9px] font-bold text-accent backdrop-blur-sm">
-              {boxes.length} obj
-            </span>
-          ) : (
-            <span />
-          )}
+        <div className="flex items-end justify-end gap-2">
           {time && (
             <span className="num rounded bg-black/65 px-1.5 py-0.5 text-[9.5px] font-medium text-white/85 backdrop-blur-sm">
               {time}
